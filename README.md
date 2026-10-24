@@ -45,26 +45,16 @@ The system ensures memory safety and clean thread termination:
 ## 🚀 Getting Started
 
 ### Prerequisites
-* Java Development Kit (JDK) 8 or higher.
-* Git (for cloning the repository).
+* JDK 21 and Maven 3.8+ (dependencies: Jackson for JSON, JUnit 5 for tests).
 
-### Installation & Build
-
-**Step 1: Clone the repository to your local machine**
+### Build, test and run
 
 ```bash
-git clone [https://github.com/YourUsername/Linear-Algebra-Engine.git](https://github.com/YourUsername/Linear-Algebra-Engine.git)
+git clone https://github.com/ehsanal999/Linear-Algebra-Engine.git
 cd Linear-Algebra-Engine
+mvn package          # compiles, runs the unit tests and builds a runnable JAR
+java -jar target/lga-1.0.jar <path_to_input.json> <path_to_output.json>
 ```
-
-**Step 2: Compile the source code**
-*(If you are using standard `javac` from the terminal)*
-
-```bash
-mkdir bin
-javac -d bin src/**/*.java
-```
-*(Note: If you are using an IDE like VS Code, Eclipse, or IntelliJ, you can simply build the project using the IDE's built-in compiler and export it as an executable JAR file named `LAE.jar`).*
 
 ### Input Format
 The engine requires a JSON file representing the mathematical expression tree. 
@@ -87,10 +77,10 @@ The engine requires a JSON file representing the mathematical expression tree.
 ```
 
 ### Execution
-Once compiled into a `.jar` file, run the engine from your terminal by providing the input JSON path and the desired output path:
+Run the engine with the input JSON path and the desired output path:
 
 ```bash
-java -jar LAE.jar <path_to_input.json> <path_to_output.json>
+java -jar target/lga-1.0.jar <path_to_input.json> <path_to_output.json>
 ```
 
 ---
@@ -101,3 +91,10 @@ The system was rigorously tested against various edge cases to ensure mathematic
 * **Dimension Mismatch Validation:** Safely intercepts illegal operations (e.g., adding a 2x2 matrix to a 3x3 matrix) and throws descriptive `IllegalArgumentException`s.
 * **Deeply Nested Expressions:** Capable of resolving heavily nested trees without stack overflow issues.
 * **Single Element / Unary Operations:** Gracefully handles 1x1 matrices and operations like `NEGATE` and `TRANSPOSE` safely across multiple concurrent threads.
+
+---
+
+## 👥 Authors
+
+- **Ehsan Alhwajra** — [github.com/ehsanal999](https://github.com/ehsanal999)
+- **Bahaa Abu Friha** — [github.com/bahaash2004](https://github.com/bahaash2004)
